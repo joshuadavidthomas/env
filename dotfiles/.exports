@@ -1,0 +1,27 @@
+# Install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+# local python bin scripts
+# for cookiecutter, i think
+export PATH="$HOME/.local/bin:$PATH"
+
+export GPG_TTY=$(tty)
+# python poetry path
+export PATH="$HOME/.poetry/bin:$PATH"
+# pip cert
+export PIP_CERT=$HOME/.certs/cacert.pem
+# requests
+export REQUESTS_CA_BUNDLE=$HOME/.certs/cacert.pem
+# clockify
+export CLOCKIFY_API_KEY="MmUzNDc4NDEtY2QxMS00MjljLWFiNTUtNGYzYWUwNjZiMzBl"
+export CLOCKIFY_WORKSPACE_ID="601d5c14f6e38832491f2f05"
+# oracle db
+export ORACLE_HOME=/opt/oracle/instantclient_21_1
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$ORACLE_HOME
+# disable upower
+# http://blog.miguelalexcantu.com/2020/12/fixing-upower-warning-wslzshspaceship.html
+export SPACESHIP_BATTERY_SHOW=false
+# go
+# export PATH=$PATH:/usr/local/go/bin
+# hugo
+# export PATH=$PATH:/usr/local/hugo
