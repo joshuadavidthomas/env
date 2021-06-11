@@ -42,6 +42,7 @@ function start() {
   clear
 }
 
+##### certs
 function install_ca_certificates() {
   echo "${GREEN}** Installing ca-certificates package${RESET}"
   sudo apt-get install ca-certificates -y
@@ -50,9 +51,9 @@ function install_ca_certificates() {
 function copy_certs () {
   echo "${GREEN}** Copying TWC certs to ${HOME}/.certs"
   mkdir -p ${HOME}/.certs
-  cp -r ${DIR}/certs ${HOME}/.certs
+  cp -r ${URL}/certs ${HOME}/.certs
   echo "${GREEN}** Copying twcssc.pem to /usr/local/share/ca-certificates/twcssc.crt${RESET}"
-  sudo cp ${DIR}/certs/twcssc.pem /usr/local/share/ca-certificates/twcssc.crt
+  sudo cp ${URL}/certs/twcssc.pem /usr/local/share/ca-certificates/twcssc.crt
 }
 
 function update_ca_certificates() {
@@ -65,6 +66,8 @@ function certs() {
   copy_certs
   update_ca_certificates
 }
+
+##### common
 
 function restart_shell() {
   echo "${GREEN}** Restarting shell${RESET}"
