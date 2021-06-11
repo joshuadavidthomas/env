@@ -34,6 +34,11 @@ function step() {
   STEP_ONE="complete"
 }
 
+function restart_shell() {
+  echo "${GREEN}** Restarting shell${RESET}"
+  exec $SHELL
+}
+
 function start() {
   clear
   printf "Caching password... \n\n"
@@ -45,6 +50,9 @@ function start() {
   if [ -d $INSTALL_DIR ]; then
     echo "${RED}** Previous installation found${RESET}"
     source ${INSTALL_DIR}/scripts/upgrade.sh
+    if [ ret == 0 ]; then
+      end
+    fi
   else
     echo "${GREEN}** No previous installation found${RESET}"
     echo "${GREEN}** Installing to ${INSTALL_DIR}${RESET}"
@@ -52,10 +60,10 @@ function start() {
   fi
 }
 
-
-function restart_shell() {
-  echo "${GREEN}** Restarting shell${RESET}"
-  exec $SHELL
+function end() {
+  step 'postgame'
+  restart_shell
+  exit
 }
 
 function main() {
@@ -91,8 +99,7 @@ function main() {
   step 'node'
   source ${INSTALL_DIR}/scripts/node.sh
 
-  step 'postgame'
-  restart_shell
+  end
 }
 
 main "$@"
