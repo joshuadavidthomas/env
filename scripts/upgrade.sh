@@ -17,10 +17,10 @@ function update() {
       message="** Hooray! Local dev environment has been updated!"
       git config devEnv.lastVersion "$LAST_COMMIT"
     fi
-    printf "${BLUE}%s${RESET}\n" "$message"
+    printf "${GREEN}%s${RESET}\n" "$message"
   else
-    ret=$?
     printf "${RED}%s${RESET}\n" '** There was an error updating. Try again later?'
+    exit $?
   fi
 }
 
