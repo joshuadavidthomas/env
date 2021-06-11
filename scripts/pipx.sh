@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 check_for_previous_installation() {
   echo "${BLUE}** Checking for previous pipx installation${RESET}"

@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
-install_ca_certificates() {
+function install_ca_certificates() {
   echo "${GREEN}** Installing ca-certificates package${RESET}"
   sudo apt-get install ca-certificates -y
 }
 
-copy_certs () {
+function copy_certs () {
   echo "${GREEN}** Copying TWC certs to ${HOME}/.certs"
   mkdir -p ${HOME}/.certs
   cp -r ${DIR}/certs ${HOME}/.certs
@@ -13,12 +13,12 @@ copy_certs () {
   sudo cp ${DIR}/certs/twcssc.pem /usr/local/share/ca-certificates/twcssc.crt
 }
 
-update_ca_certificates() {
+function update_ca_certificates() {
   echo "${GREEN}** Running update-ca-certificates command${RESET}"
   sudo update-ca-certificates
 }
 
-main() {
+function main() {
   install_ca_certificates
   copy_certs
   update_ca_certificates

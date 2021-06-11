@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 set -e
 
 
-notify {
+function notify {
   echo "Something went wrong!"
   echo "$(caller): ${BASH_COMMAND}"
 }
@@ -21,7 +21,7 @@ GRAY=$(printf '\033[37m')
 BOLD=$(printf '\033[1m')
 
 
-step() {
+function step() {
   if [ -v STEP_ONE ]; then
     echo ""
   fi
@@ -30,7 +30,7 @@ step() {
   STEP_ONE="complete"
 }
 
-start() {
+function start() {
   clear
   printf "Caching password... \n\n"
   sudo -K
@@ -38,12 +38,12 @@ start() {
   clear
 }
 
-restart_shell() {
+function restart_shell() {
   echo "${GREEN}** Restarting shell${RESET}"
   exec $SHELL
 }
 
-main() {
+function main() {
   start
 
   step 'certs'
