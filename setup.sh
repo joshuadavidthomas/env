@@ -15,7 +15,8 @@ trap notify ERR
 
 
 DIR="$(dirname "$0")"
-URL=https://raw.githubusercontent.com/joshuadavidthomas/env/main
+INSTALL_DIR=$HOME/env
+
 RESET=$(printf '\033[m')
 RED=$(printf '\033[31m')
 GREEN=$(printf '\033[32m')
@@ -38,36 +39,21 @@ function start() {
   clear
   printf "Caching password... \n\n"
   sudo -K
-  sudo true;
+  sudo true
   clear
+  step 'pregame'
+  echo "${BLUE}** Checking for previous installation${RESET}"
+  if [ -d $INSTALL_DIR ]; then
+    echo "${RED}** Previous installation found${RESET}"
+    rm -rf $INSTALL_DIR
+    echo "${RED}** Previous installation removed${RESET}"
+  else
+    echo "${GREEN}** No previous installation found${RESET}"
+  fi
+  echo "${GREEN}** Installing to ${INSTALL_DIR}${RESET}"
+  git clone https://github.com/joshuadavidthomas/env.git $INSTALL_DIR
 }
 
-##### certs
-function install_ca_certificates() {
-  echo "${GREEN}** Installing ca-certificates package${RESET}"
-  sudo apt-get install ca-certificates -y
-}
-
-function copy_certs () {
-  echo "${GREEN}** Copying TWC certs to ${HOME}/.certs"
-  mkdir -p ${HOME}/.certs
-  cp -r ${URL}/certs ${HOME}/.certs
-  echo "${GREEN}** Copying twcssc.pem to /usr/local/share/ca-certificates/twcssc.crt${RESET}"
-  sudo cp ${URL}/certs/twcssc.pem /usr/local/share/ca-certificates/twcssc.crt
-}
-
-function update_ca_certificates() {
-  echo "${GREEN}** Running update-ca-certificates command${RESET}"
-  sudo update-ca-certificates
-}
-
-function certs() {
-  install_ca_certificates
-  copy_certs
-  update_ca_certificates
-}
-
-##### common
 
 function restart_shell() {
   echo "${GREEN}** Restarting shell${RESET}"
@@ -78,10 +64,7 @@ function main() {
   start
 
   step 'certs'
-  certs
-
-  step 'common'
-  source ${DIR}/scripts/common.sh
+  source ${DIR}/scripts/certs.sh
 
   step 'zsh'
   source ${DIR}/scripts/zsh.sh
