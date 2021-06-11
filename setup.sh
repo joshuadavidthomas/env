@@ -15,7 +15,6 @@ trap notify ERR
 
 
 INSTALL_DIR=$HOME/env
-DIR=$INSTALL_DIR
 
 RESET=$(printf '\033[m')
 RED=$(printf '\033[31m')
@@ -64,36 +63,36 @@ function main() {
   start
 
   step 'certs'
-  source ${DIR}/scripts/certs.sh
+  source ${INSTALL_DIR}/scripts/certs.sh
 
   step 'zsh'
-  source ${DIR}/scripts/zsh.sh
+  source ${INSTALL_DIR}/scripts/zsh.sh
 
   step 'ohmyzsh'
-  source ${DIR}/scripts/ohmyzsh.sh
+  source ${INSTALL_DIR}/scripts/ohmyzsh.sh
 
   step 'dotfiles'
-  source ${DIR}/scripts/dotfiles.sh
+  source ${INSTALL_DIR}/scripts/dotfiles.sh
 
   step 'pyenv'
-  source ${DIR}/scripts/pyenv.sh
+  source ${INSTALL_DIR}/scripts/pyenv.sh
 
   step 'python'
-  source ${DIR}/scripts/python.sh
+  source ${INSTALL_DIR}/scripts/python.sh
 
   step 'pipx'
-  source ${DIR}/scripts/pipx.sh
+  source ${INSTALL_DIR}/scripts/pipx.sh
 
   step 'poetry'
-  source ${DIR}/scripts/poetry.sh
+  source ${INSTALL_DIR}/scripts/poetry.sh
 
   step 'nvm'
-  source ${DIR}/scripts/nvm.sh
+  source ${INSTALL_DIR}/scripts/nvm.sh
 
   step 'node'
-  source ${DIR}/scripts/node.sh
+  source ${INSTALL_DIR}/scripts/node.sh
 
-  step 'cleanup'
+  step 'postgame'
   restart_shell
 }
 

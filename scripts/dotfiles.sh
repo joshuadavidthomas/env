@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_DIR=$DIR/dotfiles
+DOTFILES_DIR=$INSTALL_DIR/dotfiles
 
 for dotfile in $(find ${DOTFILES_DIR} -type f)
 do
