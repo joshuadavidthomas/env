@@ -14,8 +14,8 @@ function notify {
 trap notify ERR
 
 
-DIR="$(dirname "$0")"
 INSTALL_DIR=$HOME/env
+DIR=$INSTALL_DIR
 
 RESET=$(printf '\033[m')
 RED=$(printf '\033[31m')
