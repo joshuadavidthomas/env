@@ -3,6 +3,14 @@
 set -e
 
 
+notify {
+  echo "Something went wrong!"
+  echo "$(caller): ${BASH_COMMAND}"
+}
+
+trap notify ERR
+
+
 DIR="$(dirname "$0")"
 RESET=$(printf '\033[m')
 RED=$(printf '\033[31m')
