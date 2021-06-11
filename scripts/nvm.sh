@@ -1,8 +1,8 @@
-#!/bin/bash
+#!/bin/sh
 
 NVM_INSTALL_DIR=$HOME/.nvm
 
-function check_for_previous_installation() {
+check_for_previous_installation() {
   echo "${BLUE}** Checking for previous nvm installation${RESET}"
   if [ -d $NVM_INSTALL_DIR  ]; then
     echo "${RED}** Previous installation found${RESET}"
@@ -13,14 +13,14 @@ function check_for_previous_installation() {
   fi
 }
 
-function install_nvm() {
+install_nvm() {
   echo "${GREEN}** Installing nvm to ${NVM_INSTALL_DIR}${RESET}"
   git clone https://github.com/nvm-sh/nvm.git $NVM_INSTALL_DIR
   (cd $NVM_INSTALL_DIR; git checkout v0.38.0)
   source $NVM_INSTALL_DIR/nvm.sh
 }
 
-function main() {
+main() {
   check_for_previous_installation
   install_nvm
 }

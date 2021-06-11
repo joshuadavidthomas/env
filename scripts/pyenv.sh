@@ -1,15 +1,15 @@
-#!/bin/bash
+#!/bin/sh
 
 PYENV_INSTALL_DIR=$HOME/.pyenv
 
-function install_python_build_deps () {
+install_python_build_deps () {
   echo "${GREEN}** Installing Python build dependencies${RESET}"
   sudo apt-get install -y make build-essential libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
 }
 
-function check_for_previous_installation() {
+check_for_previous_installation() {
   echo "${BLUE}** Checking for previous pyenv installation${RESET}"
   if [ -d $PYENV_INSTALL_DIR ]; then
     echo "${RED}** Previous installation found${RESET}"
@@ -20,12 +20,12 @@ function check_for_previous_installation() {
   fi
 }
 
-function install_pyenv() {
+install_pyenv() {
   echo "${GREEN}** Installing pyenv to ${PYENV_INSTALL_DIR}${RESET}"
   git clone https://github.com/pyenv/pyenv.git $PYENV_INSTALL_DIR
 }
 
-function main() {
+main() {
   install_python_build_deps
   check_for_previous_installation
   install_pyenv

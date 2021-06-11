@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ZSH=${ZSH:-~/.oh-my-zsh}
 REPO=${REPO:-ohmyzsh/ohmyzsh}
@@ -6,7 +6,7 @@ REMOTE=${REMOTE:-https://github.com/${REPO}.git}
 BRANCH=${BRANCH:-master}
 SPACESHIP_DIR=$ZSH/custom/themes/spaceship-prompt
 
-function install_oh_my_zsh() {
+install_oh_my_zsh() {
   echo "${BLUE}** Checking for previous Oh My Zsh installation${RESET}"
   if [ -d $ZSH ]; then
     echo "${RED}** Previous installation found${RESET}"
@@ -24,7 +24,7 @@ function install_oh_my_zsh() {
     --depth=1 --branch "$BRANCH" "$REMOTE" "$ZSH"
 }
 
-function install_spaceship_prompt() {
+install_spaceship_prompt() {
   echo "${BLUE}** Checking for previous Spaceship ZSH Prompt installation${RESET}"
   if [ -d $SPACESHIP_DIR ]; then
     echo "${RED}** Previous installation found${RESET}"
@@ -38,7 +38,7 @@ function install_spaceship_prompt() {
   ln -s "$ZSH/custom/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH/custom/themes/spaceship.zsh-theme"
 }
 
-function main() {
+main() {
   install_oh_my_zsh
   install_spaceship_prompt
 }
