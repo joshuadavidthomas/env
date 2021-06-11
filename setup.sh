@@ -15,6 +15,7 @@ trap notify ERR
 
 
 DIR="$(dirname "$0")"
+URL=https://raw.githubusercontent.com/joshuadavidthomas/env/main
 RESET=$(printf '\033[m')
 RED=$(printf '\033[31m')
 GREEN=$(printf '\033[32m')
@@ -38,6 +39,7 @@ function start() {
   printf "Caching password... \n\n"
   sudo -K
   sudo true;
+  DIR=$URL
   clear
 }
 
@@ -48,6 +50,8 @@ function restart_shell() {
 
 function main() {
   start
+
+  echo ${PWD}
 
   step 'certs'
   source ${DIR}/scripts/certs.sh
