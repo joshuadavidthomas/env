@@ -14,7 +14,7 @@ function notify {
 trap notify ERR
 
 
-INSTALL_DIR=$HOME/env
+INSTALL_DIR=$HOME/.env
 
 RESET=$(printf '\033[m')
 RED=$(printf '\033[31m')
@@ -44,13 +44,12 @@ function start() {
   echo "${BLUE}** Checking for previous installation${RESET}"
   if [ -d $INSTALL_DIR ]; then
     echo "${RED}** Previous installation found${RESET}"
-    rm -rf $INSTALL_DIR
-    echo "${RED}** Previous installation removed${RESET}"
+    source ${INSTALL_DIR}/scripts/upgrade.sh
   else
     echo "${GREEN}** No previous installation found${RESET}"
+    echo "${GREEN}** Installing to ${INSTALL_DIR}${RESET}"
+    git clone https://github.com/joshuadavidthomas/env.git $INSTALL_DIR
   fi
-  echo "${GREEN}** Installing to ${INSTALL_DIR}${RESET}"
-  git clone https://github.com/joshuadavidthomas/env.git $INSTALL_DIR
 }
 
 
