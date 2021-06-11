@@ -50,7 +50,7 @@ function start() {
   if [ -d $INSTALL_DIR ]; then
     echo "${RED}** Previous installation found${RESET}"
     source ${INSTALL_DIR}/scripts/upgrade.sh
-    if [ ret == 0 ]; then
+    if [ ret = 0 ]; then
       end
     fi
   else
