@@ -7,7 +7,7 @@ cd "$INSTALL_DIR"
 LAST_COMMIT=$(git rev-parse HEAD)
 
 function update() {
-  printf "${BLUE}%s${RESET}\n" "** Updating local dev environment"
+  printf "${GREEN}%s${RESET}\n" "** Updating local dev environment"
   if git pull --rebase --stat origin main; then
     # Check if it was really updated or not
     if [[ "$(git rev-parse HEAD)" = "$LAST_COMMIT" ]]; then

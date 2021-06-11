@@ -41,10 +41,6 @@ function restart_shell() {
 
 function start() {
   clear
-  printf "Caching password... \n\n"
-  sudo -K
-  sudo true
-  clear
   step 'pregame'
   echo "${BLUE}** Checking for previous installation${RESET}"
   if [ -d $INSTALL_DIR ]; then
@@ -58,6 +54,10 @@ function start() {
     echo "${GREEN}** Installing to ${INSTALL_DIR}${RESET}"
     git clone https://github.com/joshuadavidthomas/env.git $INSTALL_DIR
   fi
+  step 'password'
+  printf "Caching password... \n\n"
+  sudo -K
+  sudo true
 }
 
 function end() {
