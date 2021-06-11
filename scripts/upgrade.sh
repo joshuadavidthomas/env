@@ -2,6 +2,7 @@
 # Lifted shamelessly from Oh My Zsh's upgrade script
 # https://github.com/ohmyzsh/ohmyzsh/blob/master/tools/upgrade.sh
 
+cd "$INSTALL_DIR"
 
 LAST_COMMIT=$(git rev-parse HEAD)
 
