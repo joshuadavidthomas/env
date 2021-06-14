@@ -81,6 +81,9 @@ function main() {
   step 'dotfiles'
   source ${INSTALL_DIR}/scripts/dotfiles.sh
 
+  step 'packages'
+  source ${INSTALL_DIR}/scripts/packages.sh
+
   step 'pyenv'
   source ${INSTALL_DIR}/scripts/pyenv.sh
 
