@@ -46,10 +46,10 @@ function start() {
   if [ -d $INSTALL_DIR ]; then
     echo "${RED}** Previous installation found${RESET}"
     source ${INSTALL_DIR}/scripts/upgrade.sh
-    read -p "Continue with setup? (y/n)" answer
+    read -p "Continue with setup? (y/n): " answer
     answer=${answer:-y}
     case $answer in
-     [yY]* ) continue;;
+     [yY]* ) echo "${GREEN}** Continuing with setup...${RESET}";;
 
      [nN]* ) exit;;
 
