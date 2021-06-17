@@ -92,6 +92,9 @@ function main() {
 
   step 'poetry'
   source ${INSTALL_DIR}/scripts/poetry.sh
+  
+  step 'invoke'
+  source ${INSTALL_DIR}/scripts/invoke.sh
 
   step 'nvm'
   source ${INSTALL_DIR}/scripts/nvm.sh
