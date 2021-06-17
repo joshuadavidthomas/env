@@ -47,7 +47,15 @@ function start() {
     echo "${RED}** Previous installation found${RESET}"
     source ${INSTALL_DIR}/scripts/upgrade.sh
     if [ $ret = 0 ]; then
-      end
+      read -p "Continue with setup? (y/n)" answer
+      answer=${answer:-y}
+      case $answer in
+       [yY]* ) continue;;
+
+       [nN]* ) exit;;
+
+       * )     echo "Please enter y or n";;
+      esac
     fi
   else
     echo "${GREEN}** No previous installation found${RESET}"
