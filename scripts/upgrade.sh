@@ -16,6 +16,7 @@ function update() {
     else
       message="** Hooray! Local dev environment has been updated!"
       git config devEnv.lastVersion "$LAST_COMMIT"
+      ret=0
     fi
     printf "${GREEN}%s${RESET}\n" "$message"
   else
