@@ -2,7 +2,7 @@
 
 function install_zsh() {
   echo "${GREEN}** Installing zsh shell${RESET}"
-  sudo apt-get install zsh
+  sudo apt-get install zsh -y
 }
 
 function set_default_shell() {
