@@ -1,6 +1,6 @@
 #!/bin/bash
 
-$PACKAGES='ripgrep'
+PACKAGES='ripgrep'
 
 function update() {
   sudo apt-get update
