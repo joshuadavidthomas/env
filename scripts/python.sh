@@ -3,12 +3,10 @@
 PYENV_INSTALL_DIR=$HOME/.pyenv
 
 function install_python() {
-  if [ ! -d "$PYENV_INSTALL_DIR/versions" ]; then
-    for version in "$@"; do
-      echo "${GREEN}** Installing Python v${version}${RESET}"
-      pyenv install ${version}
-    done
-  fi
+  for version in "$@"; do
+    echo "${GREEN}** Installing Python v${version}${RESET}"
+    pyenv install ${version}
+  done
 }
 
 function set_global_python() {
