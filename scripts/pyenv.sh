@@ -23,7 +23,7 @@ function check_for_previous_installation() {
 function install_pyenv() {
   echo "${GREEN}** Installing pyenv to ${PYENV_INSTALL_DIR}${RESET}"
   git clone https://github.com/pyenv/pyenv.git $PYENV_INSTALL_DIR
-  source $HOME/.zshrc
+  eval "$(pyenv init -)"
 }
 
 function main() {
