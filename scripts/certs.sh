@@ -8,7 +8,7 @@ function install_ca_certificates() {
 function copy_certs () {
   echo "${GREEN}** Copying TWC certs to ${HOME}/.certs"
   mkdir -p ${HOME}/.certs
-  cp -r ${INSTALL_DIR}/certs ${HOME}/.certs
+  cp -r ${INSTALL_DIR}/certs/* ${HOME}/.certs
   echo "${GREEN}** Copying twcssc.pem to /usr/local/share/ca-certificates/twcssc.crt${RESET}"
   sudo cp ${INSTALL_DIR}/certs/twcssc.pem /usr/local/share/ca-certificates/twcssc.crt
 }
