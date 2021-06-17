@@ -7,7 +7,7 @@ function update() {
 }
 
 function install_packages() {
-  sudo apt-get install $PACKAGES
+  sudo apt-get install $PACKAGES -y
 }
 
 main() {
