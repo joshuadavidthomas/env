@@ -124,3 +124,5 @@ if shopt -q login_shell; then
   export PATH="$PYENV_ROOT/bin:$PATH" 
  eval "$(pyenv init --path)" 
 fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
