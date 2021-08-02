@@ -45,7 +45,7 @@ function start() {
   echo "${BLUE}** Checking for previous installation${RESET}"
   if [ -d $INSTALL_DIR ]; then
     echo "${RED}** Previous installation found${RESET}"
-    source ${INSTALL_DIR}/scripts/upgrade.sh
+    #source ${INSTALL_DIR}/scripts/upgrade.sh
   else
     echo "${GREEN}** No previous installation found${RESET}"
     echo "${GREEN}** Installing to ${INSTALL_DIR}${RESET}"
