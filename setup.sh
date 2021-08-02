@@ -102,6 +102,9 @@ function main() {
   step 'node'
   source ${INSTALL_DIR}/scripts/node.sh
 
+  step 'elixir'
+  source ${INSTALL_DIR}/scripts/elixir.sh
+
   step 'fzf'
   source ${INSTALL_DIR}/scripts/fzf.sh
 
