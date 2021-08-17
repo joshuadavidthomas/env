@@ -105,9 +105,6 @@ function main() {
   step 'elixir'
   source ${INSTALL_DIR}/scripts/elixir.sh
 
-  step 'fzf'
-  source ${INSTALL_DIR}/scripts/fzf.sh
-
   end
 }
 
