@@ -13,11 +13,10 @@ function check_for_previous_installation() {
   fi
 }
 
-function install_nvm() {
+function install_fzf() {
   echo "${GREEN}** Installing fzf to ${FZF_INSTALL_DIR}${RESET}"
-  git clone https://github.com/nvm-sh/nvm.git $FZF_INSTALL_DIR
   git clone --depth 1 https://github.com/junegunn/fzf.git $FZF_INSTALL_DIR
-  source $FZF_INSTALL_DIR/install.sh
+  source $FZF_INSTALL_DIR/install
 }
 
 function main() {
